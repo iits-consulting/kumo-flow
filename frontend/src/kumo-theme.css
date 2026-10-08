@@ -1,0 +1,17 @@
+/* Kumo/iits brand tokens, shared by the KumoVision tools. */
+@theme {
+  --font-sans: 'Poppins', ui-sans-serif, system-ui, sans-serif;
+  --font-mono: ui-monospace, 'SF Mono', 'Cascadia Mono', Menlo, monospace;
+
+  --color-fire: #d22720;
+  --color-vermillion: #e6423a;
+  --color-pearl: #021d27;
+  --color-sea: #1db5b0; /* fill-only — fails AA as text on light surfaces */
+  --color-teal-text: #0c6f6b; /* the AA-passing teal for text */
+  --color-powder: #f2e2e3;
+  --color-ink: #021d27;
+  --color-muted: #5a7077;
+  --color-faint: #8aa0a7;
+  --color-line: #ece3e3;
+  --color-line-strong: #ded2d2;
+}

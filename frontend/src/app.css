@@ -1,0 +1,78 @@
+@import "tailwindcss";
+@import "./kumo-theme.css";
+
+/* The editor toggles dark mode with a .dark class (see app-main.ts / Toolbar),
+   so dark: must key off that class, not prefers-color-scheme. */
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+  color-scheme: light;
+
+  --bg: #ffffff;
+  --sidebar-bg: #fafafa;
+  --card-bg: #ffffff;
+  --border: #ece3e3;
+  --border-strong: #ded2d2;
+  --text: #021d27;
+  --muted: #5a7077;
+  --muted-strong: #666666;
+  --hover-bg: #f0f0f0;
+  --input-bg: #ffffff;
+  --track-bg: #eeeeee;
+  --group-bg: rgba(100, 116, 139, 0.08);
+  --accent: #d22720;
+  --accent-text: #ffffff;
+  /* Selection ring only — kept separate from --accent so the flow canvas's
+     selection outline (teal) never collides with --danger (red = failed run). */
+  --selection: #1db5b0;
+  --danger: #dc2626;
+  --success: #16a34a;
+}
+
+.dark {
+  color-scheme: dark;
+  --bg: #0b0f17;
+  --sidebar-bg: #10151f;
+  --card-bg: #161c27;
+  --border: #262e3a;
+  --border-strong: #2f3846;
+  --text: #e5e7eb;
+  --muted: #8b95a5;
+  --muted-strong: #a7b0c0;
+  --hover-bg: #1c2330;
+  --input-bg: #0d1420;
+  --track-bg: #202836;
+  --group-bg: rgba(148, 163, 184, 0.08);
+  --accent: #e6423a;
+  --accent-text: #021d27;
+  --selection: #1db5b0;
+  --danger: #f87171;
+  --success: #4ade80;
+}
+
+body {
+  margin: 0;
+}
+
+/* Selection ring — xyflow only styles its built-in node types when selected,
+   so custom nodes (flow cards and group boxes) need their own indicator. An
+   outline stays clear of the border, which encodes run state. The :focus
+   variants out-specify the library's `.selectable:focus { outline: none }`,
+   which would otherwise hide the ring on the last-clicked node. */
+.svelte-flow__node.selected,
+.svelte-flow__node.selectable.selected:focus,
+.svelte-flow__node.selectable.selected:focus-visible {
+  outline: 2px solid var(--selection);
+  outline-offset: 3px;
+  border-radius: 8px;
+}
+
+/* xyflow paints its built-in "group" type light gray regardless of colorMode —
+   a light slab on the dark canvas. GroupNode draws its own themed box. */
+.svelte-flow__node-group {
+  background: none;
+  border: none;
+}

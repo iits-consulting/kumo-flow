@@ -1,0 +1,37 @@
+[project]
+name = "backend"
+version = "0.1.0"
+description = "Backend engine for KumoFlow"
+readme = "README.md"
+requires-python = ">=3.13"
+dependencies = [
+    "anomalib>=2.6.0",
+    "av>=18.1.0",
+    "fastapi>=0.139.0",
+    # headless: this only ever decodes/encodes video on a server, never opens a
+    # window — and it's the build anomalib pulls, so the GUI one would collide over cv2
+    "nibabel>=5.4.2",
+    "opencv-python-headless>=5.0.0.93",
+    "pillow>=12.0.0",  # overlay text in _draw_texts; arrives via torchvision anyway, but we import it directly
+    "pillow-heif>=1.5.0",
+    "pydantic>=2.13.4",
+    "pydantic-ai-slim[openai]>=2.28.0",
+    "pydicom>=3.0.2",
+    "python-gdcm>=3.2.6",
+    "python-multipart>=0.0.32",
+    "scikit-learn>=1.9.0",
+    "scipy>=1.18.0",
+    "torch>=2.13.0",
+    "torchvision>=0.28.0",
+    "transformers>=5.0",
+    "umap-learn>=0.5.12",
+    "uvicorn>=0.51.0",
+]
+
+[project.optional-dependencies]
+agent = ["mcp>=1.0"]  # MCP server for external agents (mcp_server.py) — optional, most installs never need it
+
+[dependency-groups]
+dev = [
+    "pytest>=9.1.1",
+]
