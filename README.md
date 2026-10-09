@@ -1,4 +1,4 @@
-# KumoFlow
+# Kumo Flow
 
 A low-code node based platform for computer vision workflows.
 
