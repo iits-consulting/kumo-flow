@@ -29,7 +29,7 @@ dependencies = [
 ]
 
 [project.optional-dependencies]
-agent = ["mcp>=1.0"]  # MCP server for external agents (mcp_server.py) — optional, most installs never need it
+agent = ["mcp>=2.2.0"]  # MCP server for external agents (mcp_server.py) — optional, most installs never need it
 
 [dependency-groups]
 dev = [
